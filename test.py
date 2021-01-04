@@ -17,7 +17,7 @@ class FlaskTests(TestCase):
             response = self.client.get("/")
             self.assertIn("board",session)
             self.assertIsNone(session.get('highscore'))
-            self.assertIsNone(session.get('nplays'))
+            self.assertIsNone(session.get('num_plays'))
             self.assertIn(b'<p>High Score:', response.data)
             self.assertIn(b'Score:', response.data)
             self.assertIn(b'Seconds Left:', response.data)
