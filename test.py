@@ -32,14 +32,14 @@ class FlaskTests(TestCase):
                                  ["B", "E", "T", "T", "T"], 
                                  ["B", "O", "T", "T", "T"], 
                                  ["B", "U", "T", "T", "T"]]
-        response = self.client.get('/check-word?word=bet')
+        response = self.client.get('/make-guess?guess=bet')
         self.assertEqual(response.json['result'], 'ok')
 
     def test_invalid_word(self):
         """Test a word that is too long for the board."""
 
         self.client.get('/')
-        response = self.client.get('/check-word?word=impossible')
+        response = self.client.get('/make-guess?guess=impossible')
         self.assertEqual(response.json['result'], 'not-on-board')
 
     def non_english_word(self):
@@ -47,6 +47,6 @@ class FlaskTests(TestCase):
 
         self.client.get('/')
         response = self.client.get(
-            '/check-word?word=asdfasdfasdfasdfasdf')
+            '/make-guess?guess=asdfasdfasdfasdfasdf')
         self.assertEqual(response.json['result'], 'not-word')
 
