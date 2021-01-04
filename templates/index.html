@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boggle Game</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Boggle Game</title>
+        <link rel="stylesheet" href="/static/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to Boggle! Let's Play.</h1>
+        </div>
+        <div class="board">
+            <table>
+                <tbody>
+                    {% for row in board %}
+                    <tr class="row">
+                        {% for letter in row%}
+                        <td>{{letter}}</td>
+                        {%endfor%}
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        <div class="guess-div">
+            <h2>Guess</h2>
+            <form method="get">
+                <input
+                    type="text"
+                    name="guess"
+                    id="guess-input"
+                    placeholder="Enter a guess here:"
+                />
+            </form>
+        </div>
+        
+    </body>
 </html>
